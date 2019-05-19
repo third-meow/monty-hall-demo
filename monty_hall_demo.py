@@ -4,10 +4,17 @@ def run_with_switch():
     return 1
 
 def run_without_switch():
+    """ Simulates one contestant playing Monty hall problem 
+        without switching their choice after goat is revealed """
+
+    # Setup doors, put one "win" behind a random door
     doors = [False, False, False]
     doors[rand.randrange(3)] = True
 
+    # Select choice randomly
     choice = rand.randrange(3)
+
+    # Return 1 if choice has "win" behind is, false otherwise
     if doors[choice]:
         return 1
     else:
@@ -38,8 +45,8 @@ def main():
     win_percent_without_switch = (total_wins_without_switch / len(without_switch)) * 100
 
     print()
-    print(f"Win percent when consistantly sticking to first choice: {win_percent_without_switch}%")
-    print(f"               Win percent when consistantly switching: {win_percent_with_switch}%")
+    print(f"Win percent when consistently sticking to first choice: {win_percent_without_switch}%")
+    print(f"               Win percent when consistently switching: {win_percent_with_switch}%")
     print()
 
 
