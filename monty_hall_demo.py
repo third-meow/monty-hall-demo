@@ -1,10 +1,35 @@
 import random as rand
 
 def run_with_switch():
-    return 1
+    """ Simulates one contestant playing Monty Hall Problem 
+        switching their choice after goat is revealed """
+
+    # Setup doors, put one "win" behind a random door
+    doors = [False, False, False]
+    doors[rand.randrange(3)] = True
+
+    # Select first choice randomly
+    first_choice = rand.randrange(3)
+
+    # Select a door to remove, must not be car and must not be contestant's first choice
+    to_remove = rand.randrange(3)
+    while doors[to_remove] or to_remove == first_choice:
+        to_remove = rand.randrange(3)
+
+    # Change choice
+    choices = [0, 1, 2]
+    choices.remove(first_choice)
+    choices.remove(to_remove)
+    choice = choices[0]
+
+    # Return 1 if choice has "win" behind is, false otherwise
+    if doors[choice]:
+        return 1
+    else:
+        return 0
 
 def run_without_switch():
-    """ Simulates one contestant playing Monty hall problem 
+    """ Simulates one contestant playing Monty Hall Problem 
         without switching their choice after goat is revealed """
 
     # Setup doors, put one "win" behind a random door
