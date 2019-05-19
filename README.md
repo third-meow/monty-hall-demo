@@ -2,5 +2,7 @@
 
 
 Run this yourself!
-    $ python3 monty_hall_problem.py
+```
+$ python3 monty_hall_problem.py
+```
 
